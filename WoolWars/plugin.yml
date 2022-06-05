@@ -1,0 +1,13 @@
+name: WoolWars
+version: 1.0
+api-version: 1.18
+softdepend: [PlaceholderAPI]
+author: Sir_Blob_
+website: "https://sirblob.bosstop.ml"
+main: ml.bosstop.woolwars.Main
+description: Wool Wars Game Mode Plugin
+load: STARTUP
+
+commands:
+
+permissions:
