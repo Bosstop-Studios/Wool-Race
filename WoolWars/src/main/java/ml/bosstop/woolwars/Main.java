@@ -1,5 +1,7 @@
 package ml.bosstop.woolwars;
 
+import ml.bosstop.woolwars.commands.Command;
+import ml.bosstop.woolwars.events.Event;
 import ml.bosstop.woolwars.util.Chat;
 import ml.bosstop.woolwars.util.Storage;
 import org.bukkit.configuration.file.YamlConfiguration;
@@ -10,6 +12,7 @@ import java.io.File;
 public class Main extends JavaPlugin {
 
     public Chat chat;
+    public Storage storage;
 
     public static YamlConfiguration config;
     public Main() {}
@@ -21,15 +24,17 @@ public class Main extends JavaPlugin {
 
         config = YamlConfiguration.loadConfiguration(new File("plugins/" + this.getDataFolder().getName() + "/config.yml"));
 
-        new Storage(this).enable();
+        storage = new Storage(this);
 
         this.chat = new Chat();
 
         try {
-
+            storage.enable();
+            Command.enable(this);
+            Event.enable(this);
         } finally {
             chat.console("&fStarting Wool Wars");
-            chat.console("&fCore Active");
+            chat.console("&fWool Wars Active");
         }
 
         this.getConfig().options().copyDefaults();
@@ -41,9 +46,9 @@ public class Main extends JavaPlugin {
     public void onDisable() {
 
         try {
-
+            storage.disable();
         } finally {
-            chat.console("&fCore Disabled");
+            chat.console("&fWool Wars Disabled");
         }
 
     }

@@ -6,7 +6,7 @@ author: Sir_Blob_
 website: "https://sirblob.bosstop.ml"
 main: ml.bosstop.woolwars.Main
 description: Wool Wars Game Mode Plugin
-load: STARTUP
+#load: STARTUP
 
 commands:
 

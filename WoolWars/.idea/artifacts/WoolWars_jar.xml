@@ -2,12 +2,10 @@
   <artifact type="jar" name="WoolWars:jar">
     <output-path>$PROJECT_DIR$/../Server/plugins</output-path>
     <root id="archive" name="WoolWars.jar">
-      <element id="directory" name="META-INF">
-        <element id="file-copy" path="$PROJECT_DIR$/../Server/plugins/META-INF/MANIFEST.MF" />
-      </element>
       <element id="module-output" name="WoolWars" />
-      <element id="file-copy" path="$PROJECT_DIR$/plugin.yml" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/com/google/code/gson/gson/2.9.0/gson-2.9.0.jar" path-in-jar="/" />
       <element id="file-copy" path="$PROJECT_DIR$/config.yml" />
+      <element id="file-copy" path="$PROJECT_DIR$/plugin.yml" />
     </root>
   </artifact>
 </component>
