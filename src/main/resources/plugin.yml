@@ -1,0 +1,25 @@
+name: ${project.name}
+version: ${project.version}
+main: tech.bosstop.woolrace.WoolRace
+api-version: 1.20
+author: "Sir_Blob_"
+
+commands:
+  woolrace:
+    description: WoolRace command
+    usage: /woolrace <subcommand> [args]
+    aliases: [wr]
+    default: true
+permissions:
+  woolrace.command.selector:
+    default: true
+    description: Allows the player to select a map
+  woolrace.command.kit:
+    default: op
+    description: Allows players to manager kits
+  woolrace.command.game:
+    default: op
+    description: Allows players to manage the games
+  woolrace.command.help:
+    default: true
+    description: Allows players to view the help menu
