@@ -1,5 +1,6 @@
 package tech.bosstop.woolrace.core;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.bukkit.Location;
@@ -8,7 +9,7 @@ import tech.bosstop.common.structures.core.WRGame;
 
 public class WRGameManager {
     
-    private List<WRGame> games;
+    private List<WRGame> games = new ArrayList<>();
 
     private WRGame newgame;
 

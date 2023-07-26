@@ -6,6 +6,8 @@ public class WREventHandler {
 
         new onPlayerMove();
         new onInventoryClick();
+        new onBlockBreak();
+        new onBlockPlace();
         
     }
 }

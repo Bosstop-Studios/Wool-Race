@@ -51,8 +51,8 @@ public class WoolRace extends JavaPlugin {
         this.commandHandler.register();
 
         for(String line : startup) {
-            line.replace("%version%", getDescription().getVersion());
-            line.replace("%maps%", "0");
+            line = line.replace("%version%", this.getDescription().getVersion());
+            line = line.replace("%maps%", "0");
 
             this.chat.console(line);
         }

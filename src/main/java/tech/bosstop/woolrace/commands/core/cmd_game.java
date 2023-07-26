@@ -32,6 +32,9 @@ public class cmd_game extends WRCommand {
     }
 
     private void onCreate(Player player, String[] args) {
+
+        System.out.println("Check 2");   
+
         if(this.instance.getGameManager().createGame(args[1], player.getLocation())) {
             this.instance.getChat().send(player, "&aSuccessfully created game &6" + args[1] + "&a.");
         } else {
@@ -202,7 +205,12 @@ public class cmd_game extends WRCommand {
 
         Player player = (Player) sender;
 
-        if(args[0].equalsIgnoreCase("create")) this.onCreate(player, args);
+        System.out.println(args[1]);  
+
+        if(args[0].equalsIgnoreCase("create")) {
+            System.out.println("Check 1");  
+            this.onCreate(player, args);
+        }
         if(args[0].equalsIgnoreCase("set")) this.onSet(player, args);
         if(args[0].equalsIgnoreCase("update")) this.onUpdate(player, args);
         if(args[0].equalsIgnoreCase("finalize")) this.onFinalized(player, args);

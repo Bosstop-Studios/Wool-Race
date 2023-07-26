@@ -186,8 +186,16 @@ public class WRGame {
         return players.size() >= minPlayers;
     }
 
-    public boolean checkGrid() {
+    public boolean isInGrid(Location loc) {
+        if(loc.getBlockX() >= woolGrid.getBlockX() - 1 && loc.getBlockX() <= woolGrid.getBlockX() + 1) {
+            if(loc.getBlockZ() >= woolGrid.getBlockZ() - 1 && loc.getBlockZ() <= woolGrid.getBlockZ() + 1) {
+                return true;
+            }
+        }
+        return false;
+    }
 
+    public boolean checkGrid() {
         for(int x = -1; x < 2; x++) {
             for(int z = -1; z < 2; z++) {
                 Location loc = new Location(woolGrid.getWorld(), woolGrid.getX() + x, woolGrid.getY(), woolGrid.getZ() + z);
@@ -305,7 +313,7 @@ public class WRGame {
         this.setRound(0);
         this.resetGrid();
         this.getPlayers().forEach((player) -> {
-            Bukkit.getPlayer(player.getUuid()).teleport(this.getLobby());
+            Bukkit.getPlayer(player.getUuid()).teleport(player.getPreviousLocation());
         });
     }
 

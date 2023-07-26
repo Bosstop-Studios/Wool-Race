@@ -32,8 +32,6 @@ public class cmd_kit extends WRCommand {
     }
 
     private void onCreate(Player player, String[] args) {
-        if(!this.argsNeeded(player, args, this.getUsage(), 2)) return;
-
         if(this.instance.getKitManager().createKit(args[1], new WRKit(args[0], player.getInventory()))) {
             this.instance.getChat().send(player, "&aSuccessfully created kit &6" + args[1] + "&a.");
         } else {
@@ -42,8 +40,6 @@ public class cmd_kit extends WRCommand {
     }
 
     private void onDelete(Player player, String[] args) {
-        if(!this.argsNeeded(player, args, this.getUsage(), 2)) return;
-
         if(this.instance.getKitManager().kitExists(args[1])) {
             this.instance.getKitManager().deleteKit(args[1]);
             this.instance.getChat().send(player, "&aSuccessfully deleted kit &6" + args[1] + "&a.");
@@ -53,8 +49,6 @@ public class cmd_kit extends WRCommand {
     }
 
     private void onUpdate(Player player, String[] args) {
-        if(!this.argsNeeded(player, args, this.getUsage(), 2)) return;
-
         if(this.instance.getKitManager().kitExists(args[1])) {
             this.instance.getKitManager().updateKit(args[1], new WRKit(args[0], player.getInventory()));
             this.instance.getChat().send(player, "&aSuccessfully updated kit &6" + args[1] + "&a.");
@@ -68,10 +62,13 @@ public class cmd_kit extends WRCommand {
         if(!this.isPlayer(sender)) return true;
         Player player = (Player) sender;
 
-        if(args[0].equalsIgnoreCase("create")) this.onCreate(player, args);
-        else if(args[0].equalsIgnoreCase("delete")) this.onDelete(player, args);
-        else if(args[0].equalsIgnoreCase("update")) this.onUpdate(player, args);
-        else this.instance.getChat().send(player, "&4Invalid subcommand. &6" + this.getUsage());
+        if(args[0].equalsIgnoreCase("create")) {
+            this.onCreate(player, args);
+            System.out.println("createWORKS");
+        }
+
+        if(args[0].equalsIgnoreCase("delete")) this.onDelete(player, args);
+        if(args[0].equalsIgnoreCase("update")) this.onUpdate(player, args);
 
         return true;
     }
